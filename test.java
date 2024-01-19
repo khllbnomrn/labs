@@ -1,24 +1,59 @@
+package lab2;
 import java.util.*;
 
-public class test{
-public static void main(String[] args)
- {
- Library lib = new Library("MedTech, Lac 2, Tunis");
- lib.addBook(new Book("The Da Vinci Code"));
- lib.addBook(new Book("Le Petit Prince"));
- lib.addBook(new Book("A Tale of Two Cities"));
- lib.addBook(new Book("The Lord of the Rings"));
- System.out.println("Library hours:");
- lib.printOpeningHours();
- System.out.println("Library address:");
- lib.printAddress();
- System.out.println("Borrowing The Lord of the Rings:");
- lib.borrowBook("The Lord of the Rings");
- System.out.println("Books available in the library:");
- lib.printAvailableBooks();
- System.out.println("Returning The Lord of the Rings:");
- lib.returnBook("The Lord of the Rings");
- System.out.println("Books available in the library:");
- lib.printAvailableBooks();
-}
+public class test {
+
+	public static void main(String[] args) {
+		
+		Scanner std = new Scanner(System.in);
+		
+		System.out.print("input Circle radius : ");
+		int radius=std.nextInt();
+		System.out.print("input Rectangle length : ");
+		int Rlength=std.nextInt();
+		System.out.print("input Rectangle height : ");
+		int Rheight=std.nextInt();
+		System.out.print("input Square side : ");
+		int Sqside=std.nextInt();
+		System.out.print("input Triangle base : ");
+		int Tbase=std.nextInt();
+		System.out.print("input Triangle height : ");
+		int Theight=std.nextInt();
+		
+		Circle circle = new Circle(radius);
+		Triangle triangle = new Triangle(Theight,Tbase);
+		Square square = new Square(Sqside);
+		Rectangle rectangle = new Rectangle(Rheight,Rlength);
+		
+		shape[] shapes ={circle, triangle,rectangle, square};
+		
+		for (int i=0; i<shapes.length;i++)
+		{
+			if (shapes[i] instanceof printable)
+			{
+				System.out.println(shapes[i].calculateArea());
+				if (shapes[i] instanceof Circle)
+				{
+				((Circle)shapes[i]).print();
+				}
+				if (shapes[i] instanceof Rectangle)
+				{
+				((Rectangle)shapes[i]).print();
+				}
+				if (shapes[i] instanceof Triangle)
+				{
+				((Triangle)shapes[i]).print();
+				}
+				if (shapes[i] instanceof Square)
+				{
+				((Square)shapes[i]).print();
+				}
+		
+			}
+			
+			
+		}
+		
+	}
+
 }
